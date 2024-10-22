@@ -1,0 +1,9 @@
+server:
+    port: 9200
+spring:
+    application:
+        name: reactivedemo
+    r2dbc:
+        password: rootpassword
+        url: r2dbc:mysql://MYSQL_HOST:MYSQL_PORT/airline_db?useSSL=false
+        username: root
