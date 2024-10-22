@@ -1,9 +1,17 @@
-server:
-    port: 9200
-spring:
-    application:
-        name: reactivedemo
-    r2dbc:
-        password: rootpassword
-        url: r2dbc:mysql://MYSQL_HOST:MYSQL_PORT/airline_db?useSSL=false
-        username: root
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, metrics, env
+  endpoint:
+    health:
+      show-details: always
+    env:
+      show-values: always
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${random.value}
